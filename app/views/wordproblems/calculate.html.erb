@@ -1,0 +1,13 @@
+<div class="hero-unit">
+<h1>Enter your question here</h1>
+<p>Follow this format: What is 4 plus 8?</p>
+
+<div class="input-append">
+<%= form_tag(wordproblems_answer_path, method: "post") do %>
+  <%= text_field_tag(:question) %>
+  <%= submit_tag("Calculate", class: "btn btn-primary") %>
+<% end %>
+</div>
+</div>
+
+
