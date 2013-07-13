@@ -4,7 +4,7 @@ class WordProblem
 
 	PATTERN = /What is (-*\d+) (plus|minus|multiplied|times|divided)\s?b?y? (-*\d+)/i
 
-	validates :question, format: {with: PATTERN, message: "Wrong format bro!" }
+	validates :question, format: {with: PATTERN, message: "Wrong format!" }
 
 	def parse
 		regex_array = question.match(PATTERN).to_a
