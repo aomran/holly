@@ -1,2 +1,7 @@
-$('#answer').show();
-$('#answer').html("<%= escape_javascript render('answervalue') %>");
+$('#answer').show('blind', 200);
+console.log('<%= escape_javascript @error_message %>');
+if ('<%= escape_javascript @error_message %>') {
+  $('#answer').html("<%= escape_javascript render('validationerrors') %>");
+} else {
+  $('#answer').html("<%= escape_javascript render('answervalue') %>");
+}

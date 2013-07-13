@@ -4,6 +4,8 @@ class WordProblem
 
 	PATTERN = /What is (-*\d+) (plus|minus|multiplied|times|divided)\s?b?y? (-*\d+)/i
 
+	validates :question, format: {with: PATTERN, message: "Wrong format bro!" }
+
 	def parse
 		regex_array = question.match(PATTERN).to_a
 
@@ -11,7 +13,7 @@ class WordProblem
 			regex_array << :+
 		elsif regex_array[2] == 'minus'
 			regex_array << :-
-		elsif regex_array[2] == 'multiplied' || 'times'
+		elsif regex_array[2] == "multiplied" || regex_array[2] == "times"
 			regex_array << :*
 		elsif regex_array[2] == 'divided'
 			regex_array << :/
@@ -25,10 +27,6 @@ class WordProblem
 	end
 
 	def answer
-		if question.match(PATTERN)
-			calculate(parse)
-		else
-			raise ArgumentError
-		end
+		calculate(parse)
 	end
 end
