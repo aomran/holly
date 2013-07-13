@@ -11,12 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130712181438) do
-
-  create_table "word_problems", force: true do |t|
-    t.string   "question"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(version: 20130713002240) do
 
 end

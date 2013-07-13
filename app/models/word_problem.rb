@@ -1,4 +1,6 @@
-class WordProblem < ActiveRecord::Base
+class WordProblem
+	include ActiveModel::Model
+	attr_accessor :question
 
 	PATTERN = /What is (-*\d+) (plus|minus|multiplied|divided)\s?b?y? (-*\d+)/i
 
