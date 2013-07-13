@@ -1,28 +1,7 @@
-== README
+# Word Problem App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This Rails app was originally created by Ahmed, Paula and Mike (at HackerYou's Summer Academy).
 
-Things you may want to cover:
+The logic in the model was later extended by me (Ahmed) and I added some javascript to make it a "one-page" app.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+As per Paula's suggestion, I enabled chrome web speech input. So the app now takes in voice input.
