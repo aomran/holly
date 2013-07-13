@@ -4,7 +4,7 @@
 
 <div class="input-append">
 <%= form_tag(wordproblems_answer_path, method: "post") do %>
-  <%= text_field_tag(:question) %>
+  <%= text_field_tag(:question, "", :"x-webkit-speech" => "") %>
   <%= submit_tag("Calculate", class: "btn btn-primary") %>
 <% end %>
 </div>
