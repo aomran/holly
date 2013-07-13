@@ -2,7 +2,7 @@ class WordProblem
 	include ActiveModel::Model
 	attr_accessor :question
 
-	PATTERN = /What is (-*\d+) (plus|minus|multiplied|divided)\s?b?y? (-*\d+)/i
+	PATTERN = /What is (-*\d+) (plus|minus|multiplied|times|divided)\s?b?y? (-*\d+)/i
 
 	def parse
 		regex_array = question.match(PATTERN).to_a
@@ -11,7 +11,7 @@ class WordProblem
 			regex_array << :+
 		elsif regex_array[2] == 'minus'
 			regex_array << :-
-		elsif regex_array[2] == 'multiplied'
+		elsif regex_array[2] == 'multiplied' || 'times'
 			regex_array << :*
 		elsif regex_array[2] == 'divided'
 			regex_array << :/
