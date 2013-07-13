@@ -7,7 +7,7 @@ class WordproblemsControllerTest < ActionController::TestCase
   end
 
   test "should get answer" do
-    get :answer
+    post :answer, :question => "What is 23 plus 24?"
     assert_response :success
   end
 
