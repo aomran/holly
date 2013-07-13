@@ -23,7 +23,7 @@ class WordProblem
 	end
 
 	def calculate(regex_array)
-		regex_array[1].to_i.send(regex_array[4], regex_array[3].to_i)
+		regex_array[1].to_f.send(regex_array[4], regex_array[3].to_f)
 	end
 
 	def answer
