@@ -1,19 +1,32 @@
 class WordProblem < ActiveRecord::Base
 
-	def answer
-		/what is (\S?\d+) (\S+\s?\S*) (\S?\d+)\?/i.match(question)
-		return $1.to_i + $3.to_i if $2.downcase == 'plus'
-		return $1.to_i - $3.to_i if $2.downcase == 'minus'
-		return $1.to_i * $3.to_i if $2.downcase == 'multiplied by'
-		return $1.to_i / $3.to_i if $2.downcase == 'divided by'
+	PATTERN = /What is (-*\d+) (plus|minus|multiplied|divided)\s?b?y? (-*\d+)/i
+
+	def parse
+		regex_array = question.match(PATTERN).to_a
+
+		if regex_array[2] == 'plus'
+			regex_array << :+
+		elsif regex_array[2] == 'minus'
+			regex_array << :-
+		elsif regex_array[2] == 'multiplied'
+			regex_array << :*
+		elsif regex_array[2] == 'divided'
+			regex_array << :/
+		end
+
+		regex_array
 	end
 
-	# rails does this for all columns in database
-	# def question
-	# 	@question
-	# end
+	def calculate(regex_array)
+		regex_array[1].to_i.send(regex_array[4], regex_array[3].to_i)
+	end
 
-	# def quesiton=(question)
-	# 	@question = question
-	# end
+	def answer
+		if question.match(PATTERN)
+			calculate(parse)
+		else
+			raise ArgumentError
+		end
+	end
 end
