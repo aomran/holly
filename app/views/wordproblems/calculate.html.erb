@@ -1,8 +1,15 @@
 <div class="hero-unit">
   <h1>Holly - Tenth Generation AI Computer</h1>
   <h2>IQ: 6000</h2>
-  <p class="lead text-info">Well he used to have an IQ of 6000. Now he can answer any question as long as it's in the following formats: </p>
-  <p> What is [number] "operation" [number] "operation" [number]?</p>
+<blockquote class="well">
+
+  <p class="text-info">Well he used to have an IQ of 6000. Now he can answer any question as long as it's in the following format: </p>
+  <p> What is <strong>[number] {operation} [number]</strong> <em>{operation} [number]</em> ?</p>
+
+  <br>
+  <p>Example: What is 70 plus 3 multiplied by 10?</p>
+  <p>Example: What is 70 divided by 10?</p>
+</blockquote>
 
   <h4>Valid operations:</h4>
   <ul>
@@ -12,8 +19,9 @@
     <li>divided by</li>
   </ul>
 
-  <p>Example: What is 70 plus 3 multiplied by 10?</p>
 
+<div class="well">
+  <p class="text-info">Holly also accepts voice input if you're using Google Chrome!</p>
   <h3><span class="text-success">Holly: What's happening, dudes?</span></h3>
 
   <div class="input-append">
@@ -22,6 +30,7 @@
     <%= submit_tag "Calculate", class: "btn btn-primary"  %>
   <% end %>
   </div>
+</div>
 
 </div>
 
