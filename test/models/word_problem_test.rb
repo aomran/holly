@@ -2,7 +2,6 @@ require 'test_helper'
 
 class WordProblemTest < ActiveSupport::TestCase
   def setup #run at the beginning of every test
-
     @calculator = WordProblem.new
   end
 
@@ -26,8 +25,16 @@ class WordProblemTest < ActiveSupport::TestCase
     assert_equal [23, :*, 24], @calculator.convert_to_math_syntax(["23", "multiplied", "by", "24"])
   end
 
+  def test_convert_to_math_syntax_with_times
+    assert_equal [23, :*, 24], @calculator.convert_to_math_syntax(["23", "times", "24"])
+  end
+
   def test_convert_to_math_syntax_with_divided_by
     assert_equal [23, :/, 24], @calculator.convert_to_math_syntax(["23", "divided", "by", "24"])
+  end
+
+  def test_convert_to_math_syntax_with_over
+    assert_equal [23, :/, 24], @calculator.convert_to_math_syntax(["23", "over", "24"])
   end
 
   def test_convert_to_math_syntax_with_two_signs
