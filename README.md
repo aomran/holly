@@ -10,8 +10,8 @@ The app includes some Javascript to make it a "one-page" app but it also works w
 What is [number] {operation} [number] {operation} [number] ?`
 
 
-  Example: What is 70 plus 3 multiplied by 10?
-  Example: What is 70 divided by 10?
+- Example: What is 70 plus 3 multiplied by 10?
+- Example: What is 70 divided by 10?
 
 #### Valid Operations:
 * plus
