@@ -19,3 +19,7 @@ What is [number] {operation} [number] {operation} [number] ?`
 * multiplied by
 * divided by
 
+## Text to Speech
+Holly is enabled by default to respond with sound. I used the Text-to-speech (TTS) API provided free by http://www.voicerss.org/
+
+The sound can be turned off with a checkbox.
