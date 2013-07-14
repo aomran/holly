@@ -9,6 +9,9 @@
   <br>
   <p>Example: What is 70 plus 3 multiplied by 10?</p>
   <p>Example: What is 70 divided by 10?</p>
+
+  <br>
+  <p class="text-info">Holly also accepts voice input if you're using Google Chrome!</p>
 </blockquote>
 
   <h4>Valid operations:</h4>
@@ -21,24 +24,28 @@
 
 
 <div class="well">
-  <p class="text-info">Holly also accepts voice input if you're using Google Chrome!</p>
+  <!-- Greeting -->
   <h3><span class="text-success">Holly: What's happening, dudes?</span></h3>
 
+  <!-- Input from User -->
   <div class="input-append">
   <%= form_tag wordproblems_answer_path, remote: true, :authenticity_token => true do %>
     <%= text_field_tag :question, "", :"x-webkit-speech" => "" %>
     <%= submit_tag "Calculate", class: "btn btn-primary"  %>
   <% end %>
   </div>
+
+  <!-- Holly Answers -->
+  <% if flash[:alert] %>
+    <%= render 'validationerrors' %>
+  <% end %>
+  <div id="answer">
+  </div>
 </div>
+
 
 </div>
 
-<% if flash[:alert] %>
-  <%= render 'validationerrors' %>
-<% end %>
 
-<div id="answer">
-</div>
 
 
