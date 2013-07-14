@@ -1,7 +1,14 @@
+var load_spoken_answer = function(input) {
+  sound = new Audio();
+  sound.src = "http://api.voicerss.org/?key=8c7b5d2c851c4691b44dd6d668d707dd&hl=en-gb&src=" + input;
+  sound.play();
+}
+
 $('#answer').show('blind', 200);
-console.log('<%= escape_javascript @error_message %>');
 if ('<%= escape_javascript @error_message %>') {
   $('#answer').html("<%= escape_javascript render('validationerrors') %>");
+  load_spoken_answer("The damage report machine has been damaged. <%= escape_javascript @error_message %>")
 } else {
   $('#answer').html("<%= escape_javascript render('answervalue') %>");
+  load_spoken_answer("the%20answer%20is%20probably%20<%= escape_javascript @answer.to_s %>");
 }
