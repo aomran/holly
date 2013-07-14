@@ -4,6 +4,7 @@ class WordproblemsController < ApplicationController
 
   def answer
   	@question = WordProblem.new({ question: params[:question]})
+    @sound_option = params[:sound]
 
     respond_to do |format|
       if @question.valid?

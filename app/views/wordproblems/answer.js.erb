@@ -1,14 +1,22 @@
-var load_spoken_answer = function(input) {
-  sound = new Audio();
-  sound.src = "http://api.voicerss.org/?key=8c7b5d2c851c4691b44dd6d668d707dd&hl=en-gb&src=" + input;
-  sound.play();
+var load_spoken_answer = function(input, option) {
+  if (option == "off"){
+
+  } else {
+    sound = new Audio();
+    sound.src = "http://api.voicerss.org/?key=8c7b5d2c851c4691b44dd6d668d707dd&hl=en-gb&src=" + input;
+    sound.play();
+  }
 }
+
+var sound_option = "<%= escape_javascript @sound_option %>";
+var error_message = "The damage report machine has been damaged. <%= escape_javascript @error_message %>";
+var answer_message = "The answer is probably <%= escape_javascript @answer.to_s %>";
 
 $('#answer').show('blind', 200);
 if ('<%= escape_javascript @error_message %>') {
   $('#answer').html("<%= escape_javascript render('validationerrors') %>");
-  load_spoken_answer("The damage report machine has been damaged. <%= escape_javascript @error_message %>")
+  load_spoken_answer(error_message, sound_option)
 } else {
   $('#answer').html("<%= escape_javascript render('answervalue') %>");
-  load_spoken_answer("the%20answer%20is%20probably%20<%= escape_javascript @answer.to_s %>");
+  load_spoken_answer(answer_message, sound_option);
 }

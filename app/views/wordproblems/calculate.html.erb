@@ -28,9 +28,11 @@
   <h3><span class="text-success">Holly: What's happening, dudes?</span></h3>
 
   <!-- Input from User -->
-  <div class="input-append">
+  <div class="form-inline">
   <%= form_tag wordproblems_answer_path, remote: true, :authenticity_token => true do %>
     <%= text_field_tag :question, "", :"x-webkit-speech" => "" %>
+    <%= check_box_tag :sound, "off", false, class: "checkbox" %>
+    <%= label_tag :sound, "No Sound", class: "checkbox inline" %>
     <%= submit_tag "Calculate", class: "btn btn-primary"  %>
   <% end %>
   </div>
