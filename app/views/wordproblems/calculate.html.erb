@@ -1,5 +1,4 @@
-<div class="row">
-
+<!-- Instructions/Documentation -->
 <div class="well span6">
   <p class="text-info">Well she used to have an IQ of 6000. Now she can answer any question as long as it's in the following format: </p>
   <p> What is <strong>[number] {operation} [number]</strong> <em>{operation} [number]</em> ?</p>
@@ -21,21 +20,22 @@
 </div>
 
 
-
-
 <div class="well span6">
   <!-- Greeting -->
   <h3><span class="text-success">Holly: What's happening, dudes?</span></h3>
 
   <!-- Input from User -->
-  <div class="form-inline">
-  <%= form_tag wordproblems_answer_path, remote: true, :authenticity_token => true do %>
-    <%= text_field_tag :question, "", :"x-webkit-speech" => "" %>
-    <%= check_box_tag :sound, "off", false, class: "checkbox" %>
-    <%= label_tag :sound, "No Sound", class: "checkbox inline" %>
-    <%= submit_tag "Calculate", class: "btn btn-primary"  %>
+  <%= form_tag wordproblems_answer_path, remote: true, :authenticity_token => true,
+  class: "form-horizontal" do %>
+    <div class="input-append">
+      <%= text_field_tag :question, "", :"x-webkit-speech" => "", id: "appendedInputButton" %>
+      <%= submit_tag "Calculate", class: "btn btn-primary"  %>
+    </div>
+      <%= label_tag :sound, class: "checkbox inline" do %>
+        <%= check_box_tag :sound, "off", false %>
+        No Sound
+      <% end %>
   <% end %>
-  </div>
 
   <!-- Holly Answers -->
   <% if flash[:alert] %>
@@ -43,7 +43,6 @@
   <% end %>
   <div id="answer">
   </div>
-</div>
 
 
 
