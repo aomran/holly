@@ -1,5 +1,5 @@
 class WordproblemsController < ApplicationController
-  def calculate
+  def ask
   end
 
   def answer

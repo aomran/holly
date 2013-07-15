@@ -1,8 +1,7 @@
 WordProblemApp::Application.routes.draw do
-  get "wordproblems/calculate"
-  post "wordproblems/answer"
+  post "answer", to: "wordproblems#answer"
+  root to: "wordproblems#ask"
 
-  root to: "wordproblems#calculate"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
