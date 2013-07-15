@@ -11,11 +11,11 @@
   <p class="text-info">Holly also accepts voice input if you're using Google Chrome! Also make sure you have sound on if you want to hear Holly answer your question.</p>
 
   <h4>Valid operations:</h4>
-  <ul>
-    <li>plus</li>
-    <li>minus</li>
-    <li>multiplied by <em><strong>or</strong></em> times</li>
-    <li>divided by <em><strong>or</strong></em> over</li>
+  <ul class="icons-ul">
+    <li><i class="icon-li icon-ok"></i>plus</li>
+    <li><i class="icon-li icon-ok"></i>minus</li>
+    <li><i class="icon-li icon-ok"></i>multiplied by <em><strong>or</strong></em> times</li>
+    <li><i class="icon-li icon-ok"></i>divided by <em><strong>or</strong></em> over</li>
   </ul>
 </div>
 
@@ -31,10 +31,8 @@
       <%= text_field_tag :question, "", :"x-webkit-speech" => "", id: "appendedInputButton" %>
       <%= submit_tag "Calculate", class: "btn btn-primary"  %>
     </div>
-      <%= label_tag :sound, class: "checkbox inline" do %>
-        <%= check_box_tag :sound, "off", false %>
-        No Sound
-      <% end %>
+      <%= check_box_tag :sound, "off", false, class: "css-checkbox" %>
+      <%= label_tag :sound, "Sound On/Off", class: "css-label" %>
   <% end %>
 
   <!-- Holly Answers -->

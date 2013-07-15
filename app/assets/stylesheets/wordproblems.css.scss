@@ -1,3 +1,32 @@
 // Place all the styles related to the wordproblems controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+// The following checkbox style is inspired by http://csscheckbox.com/
+input[type=checkbox].css-checkbox {
+  display:none;
+}
+
+// adjacent selector (+) is used here to style the label that is
+// immediately preceded by a unchecked checkbox
+input[type=checkbox].css-checkbox + label.css-label {
+  padding-left: 40px;
+  display: inline-block;
+  line-height: 30px;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  font-size: 15px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+// adjacent selector (+) is used here to style the label that is
+// immediately preceded by a checked checkbox
+input[type=checkbox].css-checkbox:checked + label.css-label {
+  background-position: 0 -30px;
+}
+
+.css-label{
+  background-image: url(soundonoff.png);
+}
