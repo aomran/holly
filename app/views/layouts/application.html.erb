@@ -6,15 +6,21 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
-<body class="container-fluid">
+<body>
 
-<div class="hero-unit">
-  <h1>Holly - Tenth Generation AI Computer</h1>
-  <h2>IQ: 6000</h2>
-</div>
+<div class="container container-narrow">
+  <div class="hero-unit">
+    <h1>Holly - Tenth Generation AI Computer</h1>
+    <h2>IQ: 6000</h2>
+    <p class="text-info">Well she used to have an IQ of 6000. Now she can answer any question as long as it's in the right format.</p>
 
-<div class="row-fluid">
-  <%= yield %>
+    <p>What is <strong>[number] {operation} [number]</strong> <em>{operation} [number]</em> ?</p>
+
+  </div>
+
+  <div class="row-fluid contents">
+    <%= yield %>
+  </div>
 </div>
 
 </body>

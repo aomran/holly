@@ -2,6 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.container-narrow {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+form {
+  margin: 0 0 5px;
+}
 
 // The following checkbox style is inspired by http://csscheckbox.com/
 input[type=checkbox].css-checkbox {
@@ -16,7 +24,6 @@ input[type=checkbox].css-checkbox + label.css-label {
   line-height: 30px;
   background-repeat: no-repeat;
   background-position: 0 0;
-  font-size: 15px;
   vertical-align: middle;
   cursor: pointer;
 }
@@ -30,3 +37,4 @@ input[type=checkbox].css-checkbox:checked + label.css-label {
 .css-label{
   background-image: url(soundonoff.png);
 }
+
