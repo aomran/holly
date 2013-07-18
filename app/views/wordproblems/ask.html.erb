@@ -1,16 +1,24 @@
-<div class="well span7">
-  <!-- Greeting -->
-  <h3><span class="text-success">Holly: What's happening, dudes?</span></h3>
+<!-- Holly UI -->
+<div class="holly-ui">
+
+  <h1 class="hollyname"><%= image_tag('HollyText.png')%></h1>
+  <h1 class="hollysubtitle">Tenth Generation AI Computer</h1>
 
   <!-- Input from User -->
   <%= form_tag answer_path, remote: true, :authenticity_token => true,
   class: "form-horizontal" do %>
     <div class="input-append">
-      <%= text_field_tag :question, "", :"x-webkit-speech" => "", id: "appendedInputButton" %>
-      <%= submit_tag "Calculate", class: "btn btn-primary"  %>
+      <%= text_field_tag :question, "", :"x-webkit-speech" => "", id: "appendedInputButton", placeholder: "Ask me something..." %>
+      <%= submit_tag "Ask Holly", class: "btn btn-primary"  %>
     </div>
-      <%= check_box_tag :sound, "off", false, class: "css-checkbox" %>
-      <%= label_tag :sound, "Sound On/Off", class: "css-label" %>
+
+    <div class="sound-controls">
+    Sound Control:
+        <div class="switch" data-on="danger" data-on-label="OFF" data-off="info" data-off-label="ON">
+          <%= check_box_tag :sound, "off", false%>
+        </div>
+
+    </div>
   <% end %>
 
   <!-- Holly Answers -->
@@ -20,25 +28,55 @@
   <div id="answer">
   </div>
 
-  <p class="text-info">Holly also accepts voice input if you're using Google Chrome! Also make sure you have sound on if you want to hear Holly answer your question.</p>
-
 </div>
 
-
 <!-- Instructions/Documentation -->
-<div class="well span5">
+<div class="instructions">
 
-  <p>Example: What is 70 plus 3 multiplied by 10?</p>
-  <p>Example: What is 70 divided by 10?</p>
+  <div class="qanswer">
+    <h1><i class="icon-question-sign icon-2x"></i> Who is Holly?</h1>
+    <p>
+    "Holly" is a homage/reference to the "peculiar" AI computer from the show "Red Dwarf". She used to have an IQ of 6000 but it's hard to say what IQ she has now. Holly can be your personal calculator; ask her nicely and she will give you the answer.
+    </p>
+  </div>
 
-  <h4>Valid operations:</h4>
+
+<div class="qanswer">
+  <h1><i class="icon-lightbulb icon-2x"></i> How does this work?</h1>
+  <p>
+  As long as your question starts with "what is" and has the pattern <strong>[number] {operation} [number]</strong> then she'll take care of it.
+  </p>
+
+  <p><strong>For example:</strong> <em  class="text-info">What is 70 divided by 10?</em></p>
+
+  <p>Also, any number of additional {operation} [number] pairs may be chained on to the end of the above expression.</p>
+
+  <p><strong>For example:</strong> <em  class="text-info">What is 70 plus 3 multiplied by 10?</em></p>
+
+<div class="operations info-box">
+  <h2>Valid operations:</h2>
   <ul class="icons-ul">
     <li><i class="icon-li icon-ok"></i>plus</li>
     <li><i class="icon-li icon-ok"></i>minus</li>
     <li><i class="icon-li icon-ok"></i>multiplied by <em><strong>or</strong></em> times</li>
     <li><i class="icon-li icon-ok"></i>divided by <em><strong>or</strong></em> over</li>
   </ul>
+  </div>
+
+  <p class="voice-info info-box">Holly also accepts voice input if you're using Google Chrome! Make sure you have sound on if you want to hear Holly answer your question.</p>
 </div>
+
+  <div class="qanswer">
+    <h1><i class="icon-group icon-2x"></i> Who built this?</h1>
+
+    <p>This Ruby on Rails application was built by <a href="http://www.aomran.com" target="_blank">Ahmed Omran</a> and <a href="http://www.pfranzini.com" target="_blank">Paula Franzini</a> during <a href="http://www.hackeryou.com" target="_blank">HackerYou's</a> Summer Academy. The program/logic behind Holly was pair programmed using Test Driven Development (TDD). We used a bit of Javascript to make this a "one-page" app but it still works when Javascript is disabled.</p>
+
+    <p>Voice input was trivial to implement because it is provided by the Chrome web browser. Holly is enabled by default to respond with sound, this was accomplished by using the Text-to-speech (TTS) API provided for free by <a href="http://www.voicerss.org/" target="_blank">VoiceRSS</a>.</p>
+  </div>
+
+</div>
+
+
 
 
 

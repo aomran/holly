@@ -2,39 +2,120 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.container-narrow {
-  max-width: 960px;
+.holly-ui {
+  background: url(hollyBkgndCrop1.jpg) top center no-repeat;
+  background-size: cover;
+  color: #801020;
+  padding: 60px;
+
+}
+
+.hollyname {
+  // font-size: 150px;
+  // font-family: "fff_tusjbold";
+  // line-height: 150px;
+  text-align: center;
+  padding-bottom: 10px;
+  // text-shadow: 0px 0px 10px rgba(0,0,0,0.4)
+}
+
+.hollysubtitle {
   margin: 0 auto;
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: rgba(255,255,255,0.4);
+  width: 600px;
+  border-radius: 15px;
 }
 
 form {
-  margin: 0 0 5px;
+  text-align: center;
+  // background-color: #fff;
+  width: 60%;
+  min-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  // box-shadow: 0px 0px 10px rgba(0,0,0,0.4);
+  color: #000;
 }
 
-// The following checkbox style is inspired by http://csscheckbox.com/
-input[type=checkbox].css-checkbox {
-  display:none;
-}
-
-// adjacent selector (+) is used here to style the label that is
-// immediately preceded by a unchecked checkbox
-input[type=checkbox].css-checkbox + label.css-label {
-  padding-left: 40px;
-  display: inline-block;
+input[type=text] {
+  height: 36px;
+  width: 80%;
+  font-size: 26px;
   line-height: 30px;
-  background-repeat: no-repeat;
-  background-position: 0 0;
-  vertical-align: middle;
-  cursor: pointer;
 }
 
-// adjacent selector (+) is used here to style the label that is
-// immediately preceded by a checked checkbox
-input[type=checkbox].css-checkbox:checked + label.css-label {
-  background-position: 0 -30px;
+input[type=submit] {
+  height: 47px;
+  font-size: 26px;
+  line-height: 26px;
 }
 
-.css-label{
-  background-image: url(soundonoff.png);
+.sound-controls {
+  background-color: rgba(255,255,255,0.4);
+  margin: 0 auto;
+  margin-top: 10px;
+  padding: 5px;
+  border-radius: 10px;
+  width: 220px;
 }
+// // The following checkbox style is inspired by http://csscheckbox.com/
+// input[type=checkbox].css-checkbox {
+//   display:none;
+//   }
 
+// // adjacent selector (+) is used here to style the label that is
+// // immediately preceded by a unchecked checkbox
+// input[type=checkbox].css-checkbox + label.css-label {
+//   margin-left: 60px;
+//   padding-left: 40px;
+//   display: inline-block;
+//   line-height: 30px;
+//   background-repeat: no-repeat;
+//   background-position: 0 0;
+//   vertical-align: middle;
+//   cursor: pointer;
+// }
+
+// // adjacent selector (+) is used here to style the label that is
+// // immediately preceded by a checked checkbox
+// input[type=checkbox].css-checkbox:checked + label.css-label {
+//   background-position: 0 -30px;
+// }
+
+// .css-label{
+//   background-image: url(soundonoff.png);
+// }
+
+
+.instructions {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 60px;
+  font-size: 18px;
+
+  h1 {
+    font-size: 50px;
+  }
+
+  .qanswer {
+    margin-bottom: 50px;
+  }
+
+  .info-box {
+    margin: 20px;
+    padding: 20px;
+    color: #fff;
+    max-width: 400px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.4);
+  }
+  .operations {
+    background-color: #1ABC9C;
+  }
+
+  .voice-info {
+    background-color: #801020;
+  }
+}

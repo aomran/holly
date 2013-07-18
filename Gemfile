@@ -35,6 +35,8 @@ end
 group :development do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
+  gem 'guard'
+  gem 'guard-livereload'
 end
 
 group :production do
