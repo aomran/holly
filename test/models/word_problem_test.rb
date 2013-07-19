@@ -1,84 +1,81 @@
 require 'test_helper'
 
 class WordProblemTest < ActiveSupport::TestCase
-  def setup #run at the beginning of every test
-    @calculator = WordProblem.new
+
+  def setup
+    @wordproblem = WordProblem.new
   end
 
-  def test_strip_irrelevant_words
-    assert_equal ["23", "plus", "24"], @calculator.strip_irrelevant_words('What is 23 plus 24?')
+  def test_convert_plus_to_math_sign
+    assert_equal @wordproblem.convert_string_to_math_sign("what is 5 plus 6?"), "what is 5 + 6?"
   end
 
-  def test_strip_irrelevant_words_long
-    assert_equal ["23", "plus", "24", "plus", "53"], @calculator.strip_irrelevant_words('What is 23 plus 24 plus 53?')
+  def test_convert_minus_to_math_sign
+    assert_equal @wordproblem.convert_string_to_math_sign("what is 5 minus 6?"), "what is 5 - 6?"
   end
 
-  def test_convert_to_math_syntax_with_plus
-    assert_equal [23, :+, 24], @calculator.convert_to_math_syntax(["23", "plus", "24"])
+  def test_convert_divideover_to_math_sign
+    assert_equal @wordproblem.convert_string_to_math_sign("what is 5 divided by 6 over 100?"), "what is 5 / by 6 / 100?"
   end
 
-  def test_convert_to_math_syntax_with_minus
-    assert_equal [23, :-, 24], @calculator.convert_to_math_syntax(["23", "minus", "24"])
+  def test_convert_multipliedtimes_to_math_sign
+    assert_equal @wordproblem.convert_string_to_math_sign("what is 5 multiplied by 6 times 100?"), "what is 5 * by 6 * 100?"
   end
 
-  def test_convert_to_math_syntax_with_multiplied_by
-    assert_equal [23, :*, 24], @calculator.convert_to_math_syntax(["23", "multiplied", "by", "24"])
-  end
-
-  def test_convert_to_math_syntax_with_times
-    assert_equal [23, :*, 24], @calculator.convert_to_math_syntax(["23", "times", "24"])
-  end
-
-  def test_convert_to_math_syntax_with_divided_by
-    assert_equal [23, :/, 24], @calculator.convert_to_math_syntax(["23", "divided", "by", "24"])
-  end
-
-  def test_convert_to_math_syntax_with_over
-    assert_equal [23, :/, 24], @calculator.convert_to_math_syntax(["23", "over", "24"])
-  end
-
-  def test_convert_to_math_syntax_with_two_signs
-    assert_equal [23, :+, 24, :+, 11], @calculator.convert_to_math_syntax(["23", "plus", "24", "plus", "11"])
+  def test_strip_irrelevant_chars
+    assert_equal @wordproblem.strip_irrelevant_chars("what is 5 * by 6 * 100 + 66 - 12 / 88 ~ LOREMIPSUM?"), "5*6*100+66-12/88"
   end
 
   def test_add_two_numbers
-    assert_equal 33, @calculator.calculate([23, :+, 10])
+    @question = WordProblem.new(question: "what is 23 plus 10?")
+    assert_equal 33, @question.answer
   end
 
   def test_subtract_two_numbers
-    assert_equal 13, @calculator.calculate([23, :-, 10])
+    @question = WordProblem.new(question: "what is 23 minus 10?")
+    assert_equal 13, @question.answer
   end
 
 
   def test_multiply_two_numbers
-    assert_equal 230, @calculator.calculate([23, :*, 10])
+    @question = WordProblem.new(question: "what is 23 times 10?")
+    assert_equal 230, @question.answer
   end
 
   def test_divide_two_numbers
-    assert_equal 29, @calculator.calculate([290, :/, 10])
+    @question = WordProblem.new(question: "what is 290 over 10?")
+    assert_equal 29, @question.answer
   end
 
   def test_add_three_numbers
-    assert_equal 67, @calculator.calculate([23, :+, 10, :+, 34])
+    @question = WordProblem.new(question: "what is 23 plus 10 plus 34?")
+    assert_equal 67, @question.answer
   end
 
   def test_a_times_b_plus_c
-    assert_equal 235, @calculator.calculate([23, :*, 10, :+, 5])
+    @question = WordProblem.new(question: "what is 23 times 10 plus 5?")
+    assert_equal 235, @question.answer
   end
 
   def test_a_divided_by_b_minus_c
-    assert_equal 3, @calculator.calculate([80, :/, 10, :-, 5])
+    @question = WordProblem.new(question: "what is 80 divided by 10 minus 5?")
+    assert_equal 3, @question.answer
   end
 
   def test_a_plus_b_times_c
-    assert_equal 73, @calculator.calculate([23, :+, 10, :*, 5])
+    @question = WordProblem.new(question: "what is 23 plus 10 multiplied by 5?")
+    assert_equal 73, @question.answer
   end
 
   def test_a_minus_b_times_c
-    assert_equal -27, @calculator.calculate([23, :-, 10, :*, 5])
+    @question = WordProblem.new(question: "what is 23 minus 10 times 5?")
+    assert_equal -27, @question.answer
   end
 
   def test_a_minus_b_divided_by_c
-    assert_equal 21, @calculator.calculate([23, :-, 10, :/, 5])
+    @question = WordProblem.new(question: "what is 23 minus 10 over 5?")
+    assert_equal 21, @question.answer
   end
+
+
 end

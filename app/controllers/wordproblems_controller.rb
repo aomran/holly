@@ -1,4 +1,5 @@
 class WordproblemsController < ApplicationController
+
   def ask
   end
 
