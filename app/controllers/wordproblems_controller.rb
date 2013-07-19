@@ -13,7 +13,7 @@ class WordproblemsController < ApplicationController
         format.js {  }
       else
         @error_message = @question.errors.messages[:question][0]
-        format.html { redirect_to wordproblems_calculate_path }
+        format.html { redirect_to root_url }
         format.js { }
       end
     end
