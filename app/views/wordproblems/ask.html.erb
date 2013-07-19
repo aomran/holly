@@ -1,7 +1,8 @@
 <!-- Holly UI -->
 <div class="holly-ui">
 
-  <h1 class="hollyname"><%= image_tag('HollyText.png')%></h1>
+      <h1 class="hollyname"><%= image_tag('HollyText.png')%></h1>
+
   <h1 class="hollysubtitle">Tenth Generation AI Computer</h1>
 
   <!-- Input from User -->
@@ -14,7 +15,7 @@
 
     <div class="sound-controls">
     Sound Control:
-        <div class="switch" data-on="danger" data-on-label="OFF" data-off="info" data-off-label="ON">
+        <div class="switch" data-on="danger" data-on-label="OFF" data-off="primary" data-off-label="ON">
           <%= check_box_tag :sound, "off", false%>
         </div>
 
@@ -36,7 +37,7 @@
   <div class="qanswer">
     <h1><i class="icon-question-sign icon-2x"></i> Who is Holly?</h1>
     <p>
-    "Holly" is a homage/reference to the "peculiar" AI computer from the show "Red Dwarf". She used to have an IQ of 6000 but it's hard to say what IQ she has now. Holly can be your personal calculator; ask her nicely and she will give you the answer.
+    "Holly" is a homage/reference to the "peculiar" AI computer from the show <a href="http://en.wikipedia.org/wiki/Red_Dwarf" target="_blank">"Red Dwarf"</a>. She used to have an IQ of 6000 but it's hard to say what IQ she has now. Holly can be your personal calculator; ask her nicely and she will give you the answer.
     </p>
   </div>
 
