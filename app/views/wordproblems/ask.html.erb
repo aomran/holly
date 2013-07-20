@@ -23,7 +23,7 @@
   <% end %>
 
   <!-- Holly Answers -->
-  <% if flash[:alert] %>
+  <% if @error_message %>
     <%= render 'validationerrors' %>
   <% end %>
   <div id="answer">

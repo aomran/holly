@@ -57,8 +57,16 @@ class WordProblem
     gsub("multiplied","*")
   end
 
+  def float_fix(string)
+    string.gsub(/(\d+)/, '\1.0')
+  end
+
   def answer
-  	eval(strip_irrelevant_chars(convert_string_to_math_sign(question)))
+    clean_math_expression = strip_irrelevant_chars(convert_string_to_math_sign(question))
+
+    float_math_expression = float_fix(clean_math_expression)
+
+    eval(float_math_expression).to_s(:human)
   end
 
 end
